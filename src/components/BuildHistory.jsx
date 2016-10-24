@@ -13,11 +13,11 @@ class BuildHistory extends Component {
     }
 
     getApiRequest() {
-        const { owner, repository } = this.props;
+        const { owner, repository, pro } = this.props;
 
         return {
-            id:     `travis.buildHistory.${owner}.${repository}`,
-            params: { owner, repository }
+            id:     `travis.buildHistory.${owner}.${repository}.${ pro }`,
+            params: { owner, repository, pro }
         };
     }
 
@@ -49,9 +49,14 @@ class BuildHistory extends Component {
 
 BuildHistory.displayName = 'BuildHistory';
 
+BuildHistory.defaultProps = {
+    pro: false
+};
+
 BuildHistory.propTypes = {
     owner:      React.PropTypes.string.isRequired,
-    repository: React.PropTypes.string.isRequired
+    repository: React.PropTypes.string.isRequired,
+    pro:        PropTypes.bool
 };
 
 reactMixin(BuildHistory.prototype, ListenerMixin);

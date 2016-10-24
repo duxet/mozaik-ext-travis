@@ -31,10 +31,11 @@ test('should return correct api request', t => {
     const wrapper = shallow(<Repository owner={sampleOwner} repository={sampleRepository} />);
 
     t.same(wrapper.instance().getApiRequest(), {
-        id:     `travis.repository.${sampleOwner}.${sampleRepository}`,
+        id:     `travis.repository.${sampleOwner}.${sampleRepository}.false`,
         params: {
             owner:      sampleOwner,
-            repository: sampleRepository
+            repository: sampleRepository,
+            pro:        false
         }
     });
 });

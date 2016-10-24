@@ -14,11 +14,11 @@ class Repository extends Component {
     }
 
     getApiRequest() {
-        let { owner, repository } = this.props;
+        let { owner, repository, pro } = this.props;
 
         return {
-            id:     `travis.repository.${ owner }.${ repository }`,
-            params: { owner, repository }
+            id:     `travis.repository.${ owner }.${ repository }.${ pro }`,
+            params: { owner, repository, pro }
         };
     }
 
@@ -87,9 +87,14 @@ class Repository extends Component {
 
 Repository.displayName = 'Repository';
 
+Repository.defaultProps = {
+    pro: false
+};
+
 Repository.propTypes = {
     owner:      PropTypes.string.isRequired,
-    repository: PropTypes.string.isRequired
+    repository: PropTypes.string.isRequired,
+    pro:        PropTypes.bool
 };
 
 reactMixin(Repository.prototype, ListenerMixin);

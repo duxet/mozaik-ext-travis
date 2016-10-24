@@ -13,13 +13,14 @@ class BuildHistogram extends Component {
     }
 
     getApiRequest() {
-        let { owner, repository } = this.props;
+        let { owner, repository, pro } = this.props;
 
         return {
-            id:     `travis.buildHistory.${ owner }.${ repository }`,
+            id:     `travis.buildHistory.${ owner }.${ repository }.${ pro }`,
             params: {
                 owner:      owner,
-                repository: repository
+                repository: repository,
+                pro:        pro
             }
         };
     }
@@ -65,9 +66,14 @@ class BuildHistogram extends Component {
     }
 }
 
+BuildHistogram.defaultProps = {
+    pro: false
+};
+
 BuildHistogram.propTypes = {
     owner:      PropTypes.string.isRequired,
-    repository: PropTypes.string.isRequired
+    repository: PropTypes.string.isRequired,
+    pro:        PropTypes.bool
 };
 
 reactMixin(BuildHistogram.prototype, ListenerMixin);

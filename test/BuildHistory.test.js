@@ -61,10 +61,11 @@ test('should return correct api request', t => {
     const wrapper = shallow(<BuildHistory owner={sampleOwner} repository={sampleRepository} />);
 
     t.same(wrapper.instance().getApiRequest(), {
-        id:     `travis.buildHistory.${sampleOwner}.${sampleRepository}`,
+        id:     `travis.buildHistory.${sampleOwner}.${sampleRepository}.false`,
         params: {
             owner:      sampleOwner,
-            repository: sampleRepository
+            repository: sampleRepository,
+            pro:        false
         }
     });
 });

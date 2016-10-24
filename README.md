@@ -7,6 +7,11 @@
 [![Coverage Status][coveralls-image]][coveralls-url]
 ![widget count][widget-count-image]
 
+## Configuration
+
+key        | env key           | required | description
+-----------|-------------------|----------|-----------------------------------
+`apiToken` | TRAVIS_API_TOKEN  | no      | *Travis Pro api token*
 
 ## Demo
 
@@ -26,6 +31,7 @@ key          | required | description
 -------------|----------|---------------
 `owner`      | yes      | *repo owner*
 `repository` | yes      | *repo name*
+`pro`        | no       | *is it Travis Pro repo?*
 
 #### usage
 
